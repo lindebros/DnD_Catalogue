@@ -23,8 +23,8 @@ for rows in soup.find_all("tr"):
         source = rows.find_all("td")[8].get_text()
         results.append([name, level, school, classes, castingtime, ritual, concentration, source])
 
-with open("spells.csv", 'a', encoding='utf-8') as toWrite:
+with open("spells.csv", 'w', encoding='utf-8', newline='') as toWrite:
     writer = csv.writer(toWrite)
     writer.writerows(results)
 
-print("DND spells fetched")
+print(str(len(results)) + " DND spells fetched")
