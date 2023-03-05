@@ -34,9 +34,9 @@ for rows in soup.find_all("tr"):
         rang = catalogue.find_all("strong")[2].get_text()
         comp = catalogue.find_all("strong")[3].get_text()
         dura = catalogue.find_all("strong")[4].get_text()
-        descElement = titleStart.find_all_next("p")[2].get_text().replace("\r\n", "").replace("\t", "")
-        atHigherLevels = titleStart.find_all_next("p")[3].get_text()
-
+        descElement = titleStart.find_all_next("p")[2].get_text().replace("\r\n", "").replace("\n", "").replace("  ", "")
+        pCount = len(titleStart.find_all_next("p"))
+        atHigherLevels = "" if pCount == 11 else titleStart.find_all_next("p")[3].get_text().replace("\r\n", "").replace("\n", "").replace("  ", "")
 
         results.append([name, level, school, classes, castingtime, ritual, concentration, rang, comp, dura, descElement, atHigherLevels, source])
 
