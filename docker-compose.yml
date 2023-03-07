@@ -5,3 +5,5 @@ services:
     build: './MonsterFetcher'
   item:
     build: './ItemFetcher'
+  spell:
+    build: './SpellFetcher'
