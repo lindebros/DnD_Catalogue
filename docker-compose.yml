@@ -7,3 +7,15 @@ services:
     build: './ItemFetcher'
   spell:
     build: './SpellFetcher'
+  solr:
+    image: "solr:8"
+    ports:
+      - "8983:8983"
+    volumes:
+      - data:/var/solr
+    command: 
+      - bash
+      - "-c"
+      - "precreate-core monsters; precreate-core spells; precreate-core items; exec solr -f"
+volumes:
+  data:
